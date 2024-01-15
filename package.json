@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "scripts": {
+    "prepare": "nitropack prepare",
+    "dev": "nitropack dev",
+    "build": "nitropack build",
+    "preview": "node .output/server/index.mjs"
+  },
+  "dependencies": {
+    "@airstack/node": "^0.0.5",
+    "axios": "^1.6.5",
+    "ethers": "^6.10.0",
+    "nitropack": "latest"
+  }
+}
