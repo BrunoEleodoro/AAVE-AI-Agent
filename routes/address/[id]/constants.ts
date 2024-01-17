@@ -1,3 +1,5 @@
 export const networkProviders = {
-  'polygon': 'matic'
+  'polygon': 'matic',
+  'mainnet' : 'homestead',
+  'ethereum': 'homestead',
 }

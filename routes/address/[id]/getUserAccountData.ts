@@ -9,6 +9,7 @@ export async function getUserAccountData(network:string, address: string) {
 const contractAddress = {
       'Polygon': '0x794a61358D6845594F94dc1DB02A252b5b4814aD',
       'ethereum': '0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2',
+      'mainnet': '0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2',
       'homestead': '0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2'
     };
 var aaveContract = new ethers.Contract(contractAddress[network], abi, provider);
