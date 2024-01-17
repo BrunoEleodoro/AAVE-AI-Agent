@@ -16,9 +16,9 @@ var aaveContract = new ethers.Contract(contractAddress[network], abi, provider);
 
 aaveContract.getUserAccountData(address).then(function(userAccountData) {
     resolve({
-        totalCollateralBase: formatUnits(userAccountData.totalCollateralBase, 8),
-        totalDebtBase: formatUnits(userAccountData.totalDebtBase, 8),
-        availableBorrowsBase: formatUnits(userAccountData.availableBorrowsBase, 8),
+        totalCollateralBase: formatUnits(userAccountData.totalCollateralBase, 8) + " USD",
+        totalDebtBase: formatUnits(userAccountData.totalDebtBase, 8) + " USD",
+        availableBorrowsBase: formatUnits(userAccountData.availableBorrowsBase, 8) + " USD",
         healthFactor: formatEther(userAccountData.healthFactor),
       })
 	})});

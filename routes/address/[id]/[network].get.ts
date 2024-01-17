@@ -11,7 +11,6 @@ init(process.env.AIRSTACK_API_KEY as string);
 export default eventHandler(async (event) => {
   const address = event.context.params.id
   const network = event.context.params.network || 'homestead'
-  const provider = ethers.getDefaultProvider(networkProviders[network.toLowerCase()])
 const query = `
 query MyQuery {
   Network: TokenBalances(
