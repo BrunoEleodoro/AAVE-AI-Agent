@@ -8,11 +8,12 @@ init(process.env.AIRSTACK_API_KEY as string);
 
 export default eventHandler(async (event) => {
   const address = event.context.params.id
+  const network = event.context.params.network || 'Polygon'
   const provider = ethers.getDefaultProvider('homestead')
 const query = `
 query MyQuery {
   Polygon: TokenBalances(
-    input: {filter: {owner: {_eq: "${address}"}}, blockchain: polygon}
+    input: {filter: {owner: {_eq: "${address}"}}, blockchain: ${network.toLowerCase()}}
   ) {
     TokenBalance {
       token {
@@ -38,9 +39,13 @@ query MyQuery {
   }
 }
 `
-  const { data: { ethereum: { ETHUSD } } } = await axios.get('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd')
+  const { data: { ethereum: { usd: ETHUSD } } } = await axios.get('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd')
   const balance = await provider.getBalance(address);
   const { data, error } = await fetchQuery(query, {});
-  const filteredAAVETokens = data.Polygon.TokenBalance.filter((token:any) => token.token.name.includes('Aave'))
+  if(data){
+  const filteredAAVETokens = data[network]?.TokenBalance?.filter((token:any) => token.token.name.includes('Aave'))
   return { balance: formatEther(balance), filteredAAVETokens, res:'get the ETHUSD and multiply by the WETH and balance the user has to show it in dollars', ETHUSD , address, error}
+  }else {
+    return {error};
+  }
 })
