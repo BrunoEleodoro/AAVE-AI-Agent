@@ -12,7 +12,7 @@ export default eventHandler(async (event) => {
   const provider = ethers.getDefaultProvider('homestead')
 const query = `
 query MyQuery {
-  Polygon: TokenBalances(
+  Network: TokenBalances(
     input: {filter: {owner: {_eq: "${address}"}}, blockchain: ${network.toLowerCase()}}
   ) {
     TokenBalance {
@@ -43,7 +43,7 @@ query MyQuery {
   const balance = await provider.getBalance(address);
   const { data, error } = await fetchQuery(query, {});
   if(data){
-  const filteredAAVETokens = data[network]?.TokenBalance?.filter((token:any) => token.token.name.includes('Aave'))
+  const filteredAAVETokens = data.Network?.TokenBalance?.filter((token:any) => token.token.name.includes('Aave'))
   return { balance: formatEther(balance), filteredAAVETokens, res:'get the ETHUSD and multiply by the WETH and balance the user has to show it in dollars', ETHUSD , address, error}
   }else {
     return {error};
