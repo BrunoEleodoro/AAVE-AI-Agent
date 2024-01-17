@@ -10,7 +10,8 @@ init(process.env.AIRSTACK_API_KEY as string);
 
 export default eventHandler(async (event) => {
   const address = event.context.params.id
-  const network = event.context.params.network || 'homestead'
+  //const network = event.context.params.network || 'homestead'
+  const network = 'Polygon'
 const query = `
 query MyQuery {
   Network: TokenBalances(
