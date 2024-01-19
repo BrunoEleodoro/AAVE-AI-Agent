@@ -9,9 +9,12 @@ export default eventHandler(async (event) => {
   const address = event.context.params.safeAddress;
   const amount = event.context.params.amount;
   const destinationAddress = event.context.params.destinationAddress;
+
+
   console.log(event.context.params);
 
   const provider = ethers.getDefaultProvider("homestead");
+  const addressFromENS = await provider.resolveName(destinationAddress);
 
   const signer = new ethers.Wallet(process.env.PRIVATE_KEY as string, provider);
 
@@ -25,7 +28,7 @@ export default eventHandler(async (event) => {
   const contractAddress = "0x40D16FC0246aD3160Ccc09B8D0D3A2cD28aE6C2f";
   const GHOContract = new ethers.Contract(contractAddress, GHOAbi);
   const txData = await GHOContract.transfer.populateTransaction(
-    destinationAddress,
+    addressFromENS,
     parseUnits(amount, 18)
   );
   console.log(txData);
