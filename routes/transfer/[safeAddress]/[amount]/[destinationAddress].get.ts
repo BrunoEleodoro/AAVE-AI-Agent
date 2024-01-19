@@ -44,7 +44,7 @@ export default eventHandler(async (event) => {
   });
 
   // or using a custom service
-  const safeApiKit = new SafeApiKit({
+  const safeApiKit = new (SafeApiKit as any).default({
     chainId: 1 as any, // set the correct chainId
   });
 
