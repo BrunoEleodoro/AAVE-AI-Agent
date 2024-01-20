@@ -10,6 +10,7 @@ import SafeApiKit, { ProposeTransactionProps } from "@safe-global/api-kit";
 import GHOAbi from "../../../../abis/GHOToken.json";
 import PoolABI from "../../../../abis/Pool.json";
 import WETHABI from "../../../../abis/WETH.json";
+import { customOptions } from "../../../constants";
 import { getRouterParam } from "h3";
 
 export default eventHandler(async (event) => {
@@ -76,8 +77,9 @@ export default eventHandler(async (event) => {
       safeTransactionData,
       { to: PoolAddress, value: "0", data: "0x" },
     ],
+    options: customOptions,
   });
-  
+
   // CRAZY WORKAROUND just because the API were failing
   // so I generate the transaction data and then I add it to the safeTransaction
   const safeTransaction: SafeTransaction = {

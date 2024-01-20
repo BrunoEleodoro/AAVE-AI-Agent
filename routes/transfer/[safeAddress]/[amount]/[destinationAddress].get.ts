@@ -4,6 +4,7 @@ import { ethers, parseUnits } from "ethers";
 import SafeApiKit from "@safe-global/api-kit";
 import GHOAbi from "../../../../abis/GHOToken.json";
 import { getRouterParam } from "h3";
+import { customOptions } from "../../../constants";
 
 export default eventHandler(async (event) => {
   const addressURL = event.context.params.safeAddress;
@@ -42,6 +43,7 @@ export default eventHandler(async (event) => {
 
   const safeTransaction = await safeSdk.createTransaction({
     transactions: [safeTransactionData],
+    options: customOptions,
   });
 
   // or using a custom service

@@ -9,6 +9,7 @@ import GHOAbi from "../../../../abis/GHOToken.json";
 import PoolABI from "../../../../abis/Pool.json";
 import WETHABI from "../../../../abis/WETH.json";
 import { getRouterParam } from "h3";
+import { customOptions } from "../../../constants";
 
 export default eventHandler(async (event) => {
   const addressURL = event.context.params.safeAddress;
@@ -65,6 +66,7 @@ export default eventHandler(async (event) => {
 
   const safeTransaction = await safeSdk.createTransaction({
     transactions: transactions,
+    options: customOptions,
   });
 
   // or using a custom service
