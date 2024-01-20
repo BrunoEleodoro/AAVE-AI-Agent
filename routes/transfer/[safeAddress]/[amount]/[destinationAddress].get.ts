@@ -6,7 +6,8 @@ import GHOAbi from "../../../../abis/GHOToken.json";
 import { getRouterParam } from "h3";
 
 export default eventHandler(async (event) => {
-  const address = event.context.params.safeAddress;
+  const addressURL = event.context.params.safeAddress;
+  const address = addressURL.includes(":") ? addressURL.split(":")[1] : addressURL;
   const amount = event.context.params.amount;
   const destinationAddress = event.context.params.destinationAddress;
 
