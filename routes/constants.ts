@@ -1,3 +1,1 @@
-export const customOptions = {
-  nonce: 2,
-};
+export const customOptions = {};
