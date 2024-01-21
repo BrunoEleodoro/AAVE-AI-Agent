@@ -5,6 +5,8 @@
 ## Project Overview
 The AAVE AI Agent is an advanced tool for the Aave decentralized finance platform. Developed in a hackathon, it integrates state-of-the-art technologies to streamline user experience in DeFi, focusing on Aave.
 
+<img src="./public/image.png" width="100%" />
+
 ### Key Features
 - **Transaction Proposals**: Safe multisig wallets to propose transactions like supplying WETH, borrowing GHO, and transferring GHO tokens.
 - **Network Support**: Currently supports Ethereum mainnet.
