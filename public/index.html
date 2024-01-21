@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AAVE AI Agent</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -130,7 +131,7 @@
             <div class="flex flex-col justify-center space-y-4 text-center">
               <div class="space-y-2">
                 <div class="w-full flex items-center justify-center">
-                  <img id="logo" src="./logo.jpeg" class="w-[300px] rounded-full mb-4" />
+                  <img id="logo" src="./logo.jpeg" class="w-[150px] rounded-full mb-4 md:w-[300px]" />
                 </div>
                 <h1 id="title"
                   class="text-3xl font-bold tracking-tighter sm:text-[3rem] leading-relaxed xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500 ">
@@ -238,31 +239,37 @@
       </section>
 
       <!-- Steps Section -->
-      <section class="w-full text-white " id="steps-section">
+        <!--
+        <section class="w-full text-white md:items-center flex" id="steps-section">
         <div class="container px-4 md:px-6">
-          <div class="flex items-start py-4 space-x-4">
+        </div>
+
+-->
+    </div>
+          <div class="flex items-center py-4 space-x-4" id="steps-section">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
               class="h-6 w-6 text-gray-500 dark:text-gray-400">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
             <div class="space-y-1">
-              <h3 class="text-lg font-bold">
-                Setup a Safe Multisig 1/2 Wallet
+              <h3 class="text-lg text-white font-bold">
+                Setup a Safe Multisig Wallet
               </h3>
-              <p class="text-gray-500 dark:text-gray-400">
-                This is the address for the AAVE AI Agent:
-                0x102497C1343ed671a79B891A1Fab8aD98eef23E8
+            </div>
+          </div>
+          <div class="container px-6 truncate text-gray-500 flex flex-col items-center justify-center">
+        <p>Copy the wallet address for the AAVE AI Agent:<br/>
+          <span class="text-sm">
+0x102497C1343ed671a79B891A1Fab8aD98eef23E8
+
+          </span>
+        </p>
                 <br />
                 <a href="https://app.safe.global/new-safe/create" target="_blank"
                   class="underline underline-offset-2 text-white hover:text-gray-400">
                   Create a Safe Multisig 1/2 Wallet
                 </a>
-              </p>
-            </div>
-          </div>
-        </div>
-
     </div>
     <div class="h-[300px]">
     <div class="w-full flex-col flex items-center justify-center max-w-sm mt-[80px]">
