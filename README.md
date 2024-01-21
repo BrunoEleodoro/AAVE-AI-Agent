@@ -1,5 +1,7 @@
 # Nitro Minimal Starter
 
+https://ethglobal.com/showcase/aave-ai-agent-e8cfz
+
 Look at the [Nitro documentation](https://nitro.unjs.io/) to learn more.
 
 ## Setup
